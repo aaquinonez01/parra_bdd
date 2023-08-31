@@ -36,10 +36,11 @@ export const queries = {
   eliminarNota: "EXEC DeleteNote @id_note = @idNota, @user_id = @idUsuario;",
   loginUser:
     "EXEC LoginUser @name_user = @nombre, @password_user = @contrasena",
-    obtenerNotasPorMateriaYProfesor: "SELECT * FROM vw_NotesBySubjectTeacherStudent WHERE subject_name = @nombreMateria AND teacher_name = @nombreProfesor AND HasPrivilege(@idUsuario, 21)=1;",
-    obtenerNotasPorEstudiante: "SELECT * FROM vw_NotesByStudentAndSubject WHERE student_name = @nombreEstudiante AND dbo.HasPrivilege(@idUsuario, 22)=1;",
-    obtenerTresMejoresNotasPorMateria: "SELECT * FROM vw_Top3ScoresBySubject WHERE subject_name = @nombreMateria AND HasPrivilege(@idUsuario, 23)=1;",
-    obtenerInformacionPorID:"SELECT * FROM vw_StudentOrTeacherInfo WHERE role = @rol AND id = @id AND HasPrivilege(@idUsuario, 24)=1;",
-    obtenerEstudiantePorIdUsuario: "SELECT * FROM students WHERE user_id = @idUsuario;",
-    obtenerProfesorPorIdUsuario: "SELECT * FROM teachers WHERE user_id = @idUsuario;"
+  ibtenerAuditorias: "EXEC GetListAudits @user_id = @idUsuario;",
+  obtenerNotasPorMateriaYProfesor: "SELECT * FROM vw_NotesBySubjectTeacherStudent WHERE subject_name = @nombreMateria AND teacher_name = @nombreProfesor AND HasPrivilege(@idUsuario, 21)=1;",
+  obtenerNotasPorEstudiante: "SELECT * FROM vw_NotesByStudentAndSubject WHERE student_name = @nombreEstudiante AND dbo.HasPrivilege(@idUsuario, 22)=1;",
+  obtenerTresMejoresNotasPorMateria: "SELECT * FROM vw_Top3ScoresBySubject WHERE subject_name = @nombreMateria AND HasPrivilege(@idUsuario, 23)=1;",
+  obtenerInformacionPorID: "SELECT * FROM vw_StudentOrTeacherInfo WHERE role = @rol AND id = @id AND HasPrivilege(@idUsuario, 24)=1;",
+  obtenerEstudiantePorIdUsuario: "SELECT * FROM students WHERE user_id = @idUsuario;",
+  obtenerProfesorPorIdUsuario: "SELECT * FROM teachers WHERE user_id = @idUsuario;"
 };

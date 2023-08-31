@@ -1,5 +1,8 @@
+import { faBook } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { Loading } from "../../../../components/Loading";
 import { getListNotas, startDeleteNota } from "../../../../store/nota/thunks";
 import { Table } from "../../../components/Table";

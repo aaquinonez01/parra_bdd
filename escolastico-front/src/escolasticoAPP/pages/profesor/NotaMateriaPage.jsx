@@ -23,7 +23,7 @@ export const NotaMateriaPage = () => {
   };
   const getNotasByMateria = () => {
     const notasMateria = notas.filter(
-      (nota) => nota.subject_id === materia.id_subj
+      (nota) => nota.subject_id === materia?.id_subj
     );
     setNotasMateria(notasMateria);
   };
@@ -44,7 +44,7 @@ export const NotaMateriaPage = () => {
     <div className="mx-auto">
       <div>
         <h1 className="text-center font-extrabold text-4xl ">
-          GESTION DE NOTAS DE LA MATERIA {materia.name_subj}
+          GESTION DE NOTAS DE LA MATERIA {materia?.name_subj}
         </h1>
       </div>
       <div className="w-2/2 mx-4 my-12 flex flex-col gap-6">

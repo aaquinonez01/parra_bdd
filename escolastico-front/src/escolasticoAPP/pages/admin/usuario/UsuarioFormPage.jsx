@@ -4,7 +4,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "../../../../hooks/useForm";
 import { startNewEstudiante } from "../../../../store/estudiante/thunks";
 import { startNewProfesor } from "../../../../store/profesor/thunks";
-import { startNewUsuario } from "../../../../store/usuario/thunks";
+import {
+  startNewUsuario,
+  startUpdateUsuario,
+} from "../../../../store/usuario/thunks";
 import Modal from "../../../components/Modal";
 import {
   privilegios_estudiante,
@@ -77,6 +80,18 @@ export const UsuarioFormPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (id !== undefined) {
+      const usuarioData = {
+        usuarioId: id,
+        nombre,
+        contrasena,
+        privilegios: privilegiosData,
+      };
+      dispatch(startUpdateUsuario(id, usuarioData));
+      navigate("/usuarios");
+      return;
+    }
+
     if (tipo === "1") {
       const usuarioData = {
         nombre,
@@ -197,7 +212,7 @@ export const UsuarioFormPage = () => {
                   Seleccionar tipo de Usuario
                 </h4>
                 <div className="flex flex-col gap-2">
-                  {id && (
+                  {id === undefined && (
                     <>
                       <div className="flex items-center gap-2">
                         <input

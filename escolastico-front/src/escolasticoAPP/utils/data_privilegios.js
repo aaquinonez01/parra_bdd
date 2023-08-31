@@ -124,5 +124,5 @@ export const data_privilegios = [
   },
 ];
 
-export const privilegios_estudiante = "000000000000000000001111";
-export const privilegios_profesor = "000000000000000000000001";
+export const privilegios_estudiante = "000000000000000000000110";
+export const privilegios_profesor = "000001000100010001000001";

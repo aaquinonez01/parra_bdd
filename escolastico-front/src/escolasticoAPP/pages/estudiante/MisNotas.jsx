@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { startGetNotasByEstudiante } from "../../../store/nota/thunks";
 import { Table } from "../../components/Table";
 import {
-  notaEstudianteColumns,
+  misNotasEstudianteColumns,
   notaEstudianteRowIndex,
 } from "../../utils/notas-estudiante";
 
@@ -23,7 +23,7 @@ export const MisNotas = () => {
       <div className="w-2/3 mx-auto my-12 flex flex-col gap-6">
         <div className="overflow-y-auto">
           <Table
-            columns={notaEstudianteColumns}
+            columns={misNotasEstudianteColumns}
             rows={notasEstudiante}
             indexs={notaEstudianteRowIndex}
           />

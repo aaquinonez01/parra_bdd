@@ -6,6 +6,14 @@ export const notaEstudianteColumns = [
   "TERCER PARCIAL",
   "PROMEDIO",
 ];
+export const misNotasEstudianteColumns = [
+  "MATERIA",
+  "PRIMER PARCIAL",
+  "SEGUNDO PARCIAL",
+  "TERCER PARCIAL",
+  "PROMEDIO",
+];
+
 export const notaEstudianteRowIndex = [
   "subject_name",
   "firstPartial_note",

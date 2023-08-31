@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import avatar from "../../assets/avatar.png";
 import fondo from "../../assets/fondo.svg";
 import { startLogout } from "../../store";
-
+const cadena_privileges = "111111111111111111111111";
 const Sidebar = () => {
   const dispatch = useDispatch();
   const { nombre, privileges } = useSelector((state) => state.auth);
@@ -161,6 +161,23 @@ const Sidebar = () => {
                 </Link>
               </li>
             )}
+            {
+              /*Toda la cadena de privileges debe ser de 1 */
+              privileges === cadena_privileges && (
+                <li className="mb-2">
+                  <Link
+                    to="usuarios/auditorias"
+                    className="flex items-center gap-4 text-gray-200 hover:text-gray-900 hover:bg-slate-100 p-2 rounded-md transition-all"
+                  >
+                    <FontAwesomeIcon
+                      icon={faUser}
+                      className="mr-2"
+                    />
+                    Auditorias
+                  </Link>
+                </li>
+              )
+            }
           </ul>
           <div>
             <div className="bg-slate-500 h-0.5 mb-5"></div>

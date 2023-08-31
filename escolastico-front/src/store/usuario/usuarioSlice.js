@@ -5,6 +5,7 @@ export const usuarioSlice = createSlice({
   initialState: {
     usuarios: [],
     usuario: {},
+    auditorias: [],
     loading: false,
     message: null,
   },
@@ -15,8 +16,11 @@ export const usuarioSlice = createSlice({
     saveNewUsuario: (state, action) => {
       state.usuarios.push(action.payload);
     },
+    getListAuditoria: (state, action) => {
+      state.auditorias = action.payload.data;
+    },
+
     getListUsuario: (state, action) => {
-      console.log(action.payload);
       state.usuarios = action.payload.data;
       state.message = action.payload.message;
     },
@@ -31,7 +35,7 @@ export const usuarioSlice = createSlice({
     updateUsuarioOne: (state, action) => {
       state.usuario = action.payload.data;
       state.usuarios = state.usuarios.map((usuario) => {
-        if (usuario.id === action.payload.data.id) {
+        if (usuario.id_user === action.payload.id_user) {
           return action.payload.data;
         } else {
           return usuario;
@@ -52,5 +56,6 @@ export const {
   deleteUsuarioOne,
   updateUsuarioOne,
   emptyUsuario,
+  getListAuditoria,
   loadingUsuario,
 } = usuarioSlice.actions;

@@ -35,7 +35,6 @@ export const useCheckAuth = () => {
 
       dispatch(login({ nombre: name_user, privileges }));
       if (privileges[1] === "1") {
-        console.log("entro");
         dispatch(getListUsuarios());
       }
       if (privileges[5] === "1") {
@@ -45,6 +44,7 @@ export const useCheckAuth = () => {
         dispatch(getListProfesores());
       }
       if (privileges[13] === "1") {
+        console.log("entro");
         dispatch(getListMaterias());
       }
       if (privileges[17] === "1") {

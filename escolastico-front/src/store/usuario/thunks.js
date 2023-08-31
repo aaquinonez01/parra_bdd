@@ -1,5 +1,6 @@
 import {
   deleteUsuario,
+  getAuditoria,
   getOneUsuario,
   getUsuarios,
   saveUsuario,
@@ -7,6 +8,7 @@ import {
 } from "../../services/usuarioService";
 import {
   deleteUsuarioOne,
+  getListAuditoria,
   getListUsuario,
   getUsuarioOne,
   loadingUsuario,
@@ -49,9 +51,9 @@ export const getUsuario = (id) => async (dispatch) => {
   }
 };
 
-export const startUpdateUsuario = (usuario) => async (dispatch) => {
+export const startUpdateUsuario = (id, usuario) => async (dispatch) => {
   try {
-    const data = await updateOneUsuario(usuario);
+    const data = await updateOneUsuario(id, usuario);
     dispatch(updateUsuarioOne(data));
   } catch (error) {
     console.log(error);
@@ -62,6 +64,15 @@ export const startDeleteUsuario = (id) => async (dispatch) => {
   try {
     const data = await deleteUsuario(id);
     dispatch(deleteUsuarioOne(id));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const startGetAuditoria = () => async (dispatch) => {
+  try {
+    const data = await getAuditoria();
+    dispatch(getListAuditoria({ data }));
   } catch (error) {
     console.log(error);
   }
